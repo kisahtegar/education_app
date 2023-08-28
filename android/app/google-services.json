@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "857378325257",
+    "project_id": "education-app-3ead6",
+    "storage_bucket": "education-app-3ead6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857378325257:android:f3530d21fa17ed281389d8",
+        "android_client_info": {
+          "package_name": "com.kisahcode.education_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857378325257-dfcqd7sue8so1hfuslglvlj15589lnt9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCifncMHxBpE3M-jFuMUrj-F33wlrLLV2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857378325257-dfcqd7sue8so1hfuslglvlj15589lnt9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
