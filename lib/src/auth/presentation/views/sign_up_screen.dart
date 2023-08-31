@@ -1,14 +1,12 @@
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/common/widgets/gradient_background.dart';
 import 'package:education_app/core/common/widgets/rounded_button.dart';
-import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/res/fonts.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/src/auth/data/models/user_model.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:education_app/src/auth/presentation/views/sign_in_screen.dart';
-import 'package:education_app/src/auth/presentation/widgets/sign_in_form.dart';
 import 'package:education_app/src/auth/presentation/widgets/sign_up_form.dart';
 import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
