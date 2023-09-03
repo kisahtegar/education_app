@@ -55,6 +55,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   swipe_to: ^1.0.2
   url_launcher: ^6.1.12
+  uuid: ^3.0.7
   video_thumbnail: ^0.5.3
   youtube_metadata: ^1.0.1
 
