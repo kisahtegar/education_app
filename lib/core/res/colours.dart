@@ -1,7 +1,10 @@
 import 'dart:ui';
 
+/// These color constants can then be used throughout your application to
+/// ensure consistency in your app's color scheme.
 class Colours {
   const Colours._();
+
   /// #EDF8FF #FDC1E8, #FDFAE1, #FFFFFF
   static const gradient = [
     Color(0xFFEDF8FF),

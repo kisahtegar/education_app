@@ -4,9 +4,9 @@ import 'package:uuid/uuid.dart';
 
 /// Manage the navigation stack for a tab-based or multi-screen application. It
 /// provides methods to push, pop, and manipulate the navigation stack, allowing
-/// you to control the navigation flow within your app. This class can be integrated
-/// with your user interface to enable seamless navigation between different screens
-/// or tabs.
+/// you to control the navigation flow within your app. This class can be
+/// integrated with your user interface to enable seamless navigation between
+/// different screens or tabs.
 class TabNavigator extends ChangeNotifier {
   TabNavigator(this._initialPage) {
     _navigationStack.add(_initialPage);
@@ -32,8 +32,8 @@ class TabNavigator extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// This used to close all navigation stacks and return to the `root page` in your
-  /// custom tab navigation.
+  /// This used to close all navigation stacks and return to the `root page` in
+  /// your custom tab navigation.
   void popToRoot() {
     _navigationStack
       ..clear()
@@ -68,13 +68,13 @@ class TabNavigator extends ChangeNotifier {
   }
 }
 
-/// The `TabNavigatorProvider` class is an `InheritedNotifier` widget that serves
-/// as a means to provide the `TabNavigator` instance to the widget tree and allow
-/// widgets within the tree to access it.
+/// The `TabNavigatorProvider` class is an `InheritedNotifier` widget that serve
+/// as a means to provide the `TabNavigator` instance to the widget tree and
+/// allow widgets within the tree to access it.
 ///
-/// This is a common pattern in Flutter for sharing data or state across different
-/// parts of your application without having to pass it explicitly through constructor
-/// parameters.
+/// This is a common pattern in Flutter for sharing data or state across
+/// different parts of your application without having to pass it explicitly
+/// through constructor parameters.
 class TabNavigatorProvider extends InheritedNotifier<TabNavigator> {
   const TabNavigatorProvider({
     required this.navigator,

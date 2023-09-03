@@ -12,6 +12,9 @@ import 'package:equatable/equatable.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
+/// `AuthBloc` is designed to manage user authentication and profile-related
+/// logic in application, handling events and emitting appropriate states as
+/// authentication operations progress.
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({
     required SignIn signIn,

@@ -1,8 +1,10 @@
+import 'package:education_app/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../res/media_res.dart';
-
+/// This used to display a `Page Under Construction` screen in your app. This
+/// screen typically informs users that a particular page or feature is not yet
+/// available or is currently in development
 class PageUnderConstruction extends StatelessWidget {
   const PageUnderConstruction({super.key});
 

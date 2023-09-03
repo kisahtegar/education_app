@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// This custom input field widget. This widget is designed to simplify the
+/// creation of text input fields with various customization options.
 class IField extends StatelessWidget {
   const IField({
     required this.controller,
@@ -35,11 +37,11 @@ class IField extends StatelessWidget {
       validator: overrideValidator
           ? validator
           : (value) {
-        if (value == null || value.isEmpty) {
-          return 'This field is required';
-        }
-        return validator?.call(value);
-      },
+              if (value == null || value.isEmpty) {
+                return 'This field is required';
+              }
+              return validator?.call(value);
+            },
       onTapOutside: (_) {
         FocusScope.of(context).unfocus();
       },

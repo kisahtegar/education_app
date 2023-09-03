@@ -1,5 +1,9 @@
 part of 'on_boarding_cubit.dart';
 
+/// These state classes are used by the `OnBoardingCubit` to represent different
+/// UI states and communicate changes in the application's state to the UI. By
+/// creating distinct state classes, you can easily manage and update the UI in
+/// response to various events and data changes during the onboarding process.
 sealed class OnBoardingState extends Equatable {
   const OnBoardingState();
 
@@ -24,7 +28,7 @@ final class UserCached extends OnBoardingState {
 }
 
 final class OnBoardingStatus extends OnBoardingState {
-  const OnBoardingStatus(this.isFirstTimer);
+  const OnBoardingStatus({required this.isFirstTimer});
 
   final bool isFirstTimer;
 

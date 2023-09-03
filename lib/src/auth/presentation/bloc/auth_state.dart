@@ -1,5 +1,10 @@
 part of 'auth_bloc.dart';
 
+/// These state classes provide a structured way to represent and manage the
+/// different states of the authentication process within the `AuthBloc`. Each
+/// state encapsulates the necessary data and information about the current
+/// state of authentication, making it easier to handle and respond to different
+/// scenarios and transitions in the user authentication flow.
 sealed class AuthState extends Equatable {
   const AuthState();
 

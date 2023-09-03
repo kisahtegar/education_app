@@ -89,7 +89,7 @@ void main() {
       act: (cubit) => cubit.checkIfUserIsFirstTimer(),
       expect: () => const [
         CheckingIfUserIsFirstTimer(),
-        OnBoardingStatus(false),
+        OnBoardingStatus(isFirstTimer: false),
       ],
       verify: (_) {
         verify(() => checkIfUserIsFirstTimer()).called(1);
@@ -110,7 +110,7 @@ void main() {
       act: (cubit) => cubit.checkIfUserIsFirstTimer(),
       expect: () => const [
         CheckingIfUserIsFirstTimer(),
-        OnBoardingStatus(true),
+        OnBoardingStatus(isFirstTimer: true),
       ],
       verify: (_) {
         verify(() => checkIfUserIsFirstTimer()).called(1);

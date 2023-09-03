@@ -1,3 +1,5 @@
+/// This used to define and store paths to various media resources such as
+/// images, vectors, Lottie animations, and icons as constants.
 class MediaRes {
   const MediaRes._();
 

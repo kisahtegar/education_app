@@ -1,6 +1,7 @@
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
+/// This widget used to show loading view
 class LoadingView extends StatelessWidget {
   const LoadingView({super.key});
 

@@ -9,9 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// `BuildContext`. It promotes cleaner and more concise code within your widget
 /// build methods.
 extension ContextExt on BuildContext {
-  /// This property allows you to access the current `ThemeData` from the `Theme`
-  /// widget that is nearest to the current `BuildContext`. It provides access to
-  /// the theme's colors, text styles, and other styling properties.
+  /// This property allows you to access the current `ThemeData` from the
+  /// `Theme` widget that is nearest to the current `BuildContext`. It provides
+  /// access to the theme's colors, text styles, and other styling properties.
   ThemeData get theme => Theme.of(this);
 
   /// This property gives you access to the current `MediaQueryData`, which
@@ -25,9 +25,9 @@ extension ContextExt on BuildContext {
   double get width => size.width;
   double get height => size.height;
 
-  /// This property allows you to access a `UserProvider` object from the nearest
-  /// ancestor widget using the `read` method provided by `Provider`. It's useful
-  /// for accessing user-related data or state.
+  /// This property allows you to access a `UserProvider` object from the
+  /// nearest ancestor widget using the `read` method provided by `Provider`.
+  /// It's useful for accessing user-related data or state.
   UserProvider get userProvider => read<UserProvider>();
 
   /// This property provides easy access to the current user object (of type
@@ -35,15 +35,15 @@ extension ContextExt on BuildContext {
   /// retrieving the current user's data.
   LocalUser? get currentUser => userProvider.user;
 
-  /// This property allows you to access a `TabNavigator` object from the nearest
-  /// ancestor widget using the `read` method provided by `Provider`. It's useful
-  /// for performing navigation actions within your app, such as pushing or
-  /// popping screens/pages.
+  /// This property allows you to access a `TabNavigator` object from the
+  /// nearest ancestor widget using the `read` method provided by `Provider`.
+  /// It's useful for performing navigation actions within your app, such as
+  /// pushing or popping screens/pages.
   TabNavigator get tabNavigator => read<TabNavigator>();
 
-  /// This method calls the `pop()` method on the `TabNavigator`. It's a convenient
-  /// way to trigger the navigation stack's pop operation, typically used for
-  /// navigating back to the previous screen or page.
+  /// This method calls the `pop()` method on the `TabNavigator`. It's a
+  /// convenient way to trigger the navigation stack's pop operation, typically
+  /// used for navigating back to the previous screen or page.
   void pop() => tabNavigator.pop();
 
   /// This method calls the push() method on the TabNavigator with the provided

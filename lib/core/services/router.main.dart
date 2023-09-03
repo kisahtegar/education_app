@@ -1,5 +1,10 @@
 part of 'router.dart';
 
+/// This code defines a route generation function (`generateRoute`) that
+/// handles different routes within your Flutter application. It constructs the
+/// appropriate screens based on the route name and provides necessary
+/// dependencies using BlocProvider when required. The _pageBuilder function is
+/// used to create the page transition with a fade effect.
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/':
@@ -66,6 +71,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
   }
 }
 
+/// This is a private function used to construct a `PageRouteBuilder`. It takes
+/// a Widget-building function (`page`) and route settings as parameters.
+///
+/// It returns a `PageRouteBuilder` with a fade transition animation when
+/// navigating between screens.
 PageRouteBuilder<dynamic> _pageBuilder(
   Widget Function(BuildContext) page, {
   required RouteSettings settings,

@@ -1,9 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:education_app/src/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:education_app/src/auth/data/repos/auth_repo_impl.dart';
 import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
@@ -18,5 +13,9 @@ import 'package:education_app/src/on_boarding/domain/repository/on_boarding_repo
 import 'package:education_app/src/on_boarding/domain/usecases/cache_first_timer.dart';
 import 'package:education_app/src/on_boarding/domain/usecases/check_if_user_is_first_timer.dart';
 import 'package:education_app/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'injection_container.main.dart';

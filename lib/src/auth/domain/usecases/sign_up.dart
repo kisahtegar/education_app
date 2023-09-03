@@ -3,6 +3,9 @@ import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 
+/// The `SignUp` class represents a use case for user registration, and it
+/// depends on an `AuthRepo` instance to perform the actual registration
+/// operation.
 class SignUp extends UsecaseWithParams<void, SignUpParams> {
   const SignUp(this._repo);
 
@@ -16,6 +19,9 @@ class SignUp extends UsecaseWithParams<void, SignUpParams> {
       );
 }
 
+/// The `SignUpParams` class defines the required parameters for registration,
+/// including email, password, and full name, and can be used to create instance
+/// of these parameters for invoking the sign-up use case.
 class SignUpParams extends Equatable {
   const SignUpParams({
     required this.email,

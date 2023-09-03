@@ -1,6 +1,8 @@
 import 'package:education_app/core/res/colours.dart';
 import 'package:flutter/material.dart';
 
+/// This is a reusable button widget. It's designed to create buttons with a
+/// rounded appearance and customizable colors.
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
     required this.label,

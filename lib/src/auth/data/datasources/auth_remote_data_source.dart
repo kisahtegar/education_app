@@ -11,6 +11,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
+// This is an abstract class that defines a set of methods for performing remote
+// authentication-related operations.
 abstract class AuthRemoteDataSource {
   const AuthRemoteDataSource();
 
@@ -33,6 +35,11 @@ abstract class AuthRemoteDataSource {
   });
 }
 
+/// This class implements the `AuthRemoteDataSource` abstract class, providing
+/// concrete implementations for the defined methods.
+///
+/// The `AuthRemoteDataSourceImpl` class, which handles remote data source
+/// operations related to user authentication in application.
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   const AuthRemoteDataSourceImpl({
     required FirebaseAuth authClient,
@@ -46,7 +53,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final FirebaseFirestore _cloudStoreClient;
   final FirebaseStorage _dbClient;
 
-  /// Implementations for forgotten password.
+  /// This method sends a password reset email to the provided email address.
   @override
   Future<void> forgotPassword(String email) async {
     try {
@@ -65,6 +72,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
+  /// This method signs in a user with the provided `email` and `password`. It
+  /// retrieves user data from `Firestore` if the user exists or uploads user
+  /// data if it doesn't exist.
   @override
   Future<LocalUserModel> signIn({
     required String email,
@@ -111,6 +121,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
+  /// This method creates a new user with the provided email and password.
   @override
   Future<void> signUp({
     required String email,
@@ -142,6 +153,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
+  /// This method updates various user properties based on the provided
+  /// `UpdateUserAction`.
+  ///
+  /// Depending on the action, it updates email, display name, bio, profile
+  /// picture, or password.
+  ///
+  /// It handles different scenarios, such as uploading profile pictures to
+  /// Firebase Storage and updating user data in Firestore.
   @override
   Future<void> updateUser({
     required UpdateUserAction action,
@@ -209,12 +228,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
-  /// This used to get user data by UID.
+  /// This private method retrieves user data from Firestore based on the
+  /// provided user ID (UID).
   Future<DocumentSnapshot<DataMap>> _getUserData(String uid) async {
     return _cloudStoreClient.collection('users').doc(uid).get();
   }
 
-  /// This used to set/upload user data.
+  /// This private method sets or uploads user data to Firestore based on the
+  /// provided User object.
   Future<void> _setUserData(User user, String fallbackEmail) async {
     await _cloudStoreClient.collection('users').doc(user.uid).set(
           LocalUserModel(
@@ -227,7 +248,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         );
   }
 
-  /// This used to update user data.
+  /// This private method updates user data in Firestore with the provided data.
   Future<void> _updateUserData(DataMap data) async {
     await _cloudStoreClient
         .collection('users')

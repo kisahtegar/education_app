@@ -7,11 +7,20 @@ import 'package:education_app/src/auth/data/datasources/auth_remote_data_source.
 import 'package:education_app/src/auth/domain/entities/user.dart';
 import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 
+/// `AuthRepoImpl` acts as a bridge between the application's domain layer
+/// (where use cases and business logic reside) and the remote data source
+/// (Firebase in this case). It handles exceptions thrown by the remote data
+/// source and wraps the results in `Either` values, making it easier for higher
+/// - level components to manage success and failure scenarios during
+/// authentication operations.
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl(this._remoteDataSource);
 
   final AuthRemoteDataSource _remoteDataSource;
 
+  /// This method is responsible for initiating the password reset process for a
+  /// user by calling the `forgotPassword` method of the `_remoteDataSource`. It
+  /// takes the user's email as a parameter.
   @override
   ResultFuture<void> forgotPassword(String email) async {
     try {
@@ -22,6 +31,9 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
+  /// This method is responsible for user sign-in by calling the `signIn` method
+  /// of the `_remoteDataSource`. It takes the user's email and password as
+  /// parameters.
   @override
   ResultFuture<LocalUser> signIn({
     required String email,
@@ -38,6 +50,9 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
+  /// This method is responsible for user registration (sign-up) by calling the
+  /// `signUp` method of the `_remoteDataSource`. It takes the user's email,
+  /// full name, and password as parameters.
   @override
   ResultFuture<void> signUp({
     required String email,
@@ -56,6 +71,10 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
+  /// This method is used to update user information, such as email, display
+  /// name, bio, profile picture, or password. It calls the updateUser method of
+  /// the `_remoteDataSource` and takes parameters for the action to perform
+  /// (`UpdateUserAction`) and the user data to update.
   @override
   ResultFuture<void> updateUser({
     required UpdateUserAction action,
