@@ -2,6 +2,7 @@
 
 import 'package:education_app/core/common/app/providers/tab_navigator.dart';
 import 'package:education_app/core/common/views/persistent_view.dart';
+import 'package:education_app/src/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +21,13 @@ class DashboardController extends ChangeNotifier {
   /// Each `PersistentView` is associated with a `TabNavigator` that contains a
   /// `TabItem` with a placeholder child widget `Placeholder()`. These `_screens`
   /// represent the content to be displayed on each tab or screen of your dashboard.
+  ///
+  /// The `_screens` list consists of the following:
+  ///   1. A placeholder screen initially representing the first tab.
+  ///   2. Another placeholder screen initially representing the second tab.
+  ///   3. Yet another placeholder screen initially representing the third tab.
+  ///   4. The `ProfileView` screen representing the fourth tab, which displays
+  ///      the user's profile information.
   final List<Widget> _screens = [
     ChangeNotifierProvider(
       create: (_) => TabNavigator(TabItem(child: const Placeholder())),
@@ -34,7 +42,7 @@ class DashboardController extends ChangeNotifier {
       child: const PersistentView(),
     ),
     ChangeNotifierProvider(
-      create: (_) => TabNavigator(TabItem(child: const Placeholder())),
+      create: (_) => TabNavigator(TabItem(child: const ProfileView())),
       child: const PersistentView(),
     ),
   ];

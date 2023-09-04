@@ -50,7 +50,18 @@ class LocalUser extends Equatable {
   /// that should be considered when determining the equality of two `LocalUser`
   /// instances. In this case, it includes the `uid` and `email`.
   @override
-  List<Object?> get props => [uid, email];
+  List<Object?> get props => [
+        uid,
+        email,
+        profilePic,
+        bio,
+        points,
+        fullName,
+        groupIds.length,
+        enrolledCourseIds.length,
+        following.length,
+        followers.length,
+      ];
 
   /// This method is overridden to provide a human-readable representation of
   /// the `LocalUser` instance.
