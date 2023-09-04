@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:bloc/bloc.dart';
 import 'package:education_app/src/on_boarding/domain/usecases/cache_first_timer.dart';
 import 'package:education_app/src/on_boarding/domain/usecases/check_if_user_is_first_timer.dart';
@@ -5,11 +7,10 @@ import 'package:equatable/equatable.dart';
 
 part 'on_boarding_state.dart';
 
-/// The `OnBoardingCubit` class is a crucial part of managing the state related
-/// to onboarding in the application. It handles actions like caching data for
-/// first-time users and checking the first-time user status, updating the UI
-/// `state` accordingly. This separation of concerns makes it easier to manage
-/// and test the application's logic.
+/// The `OnBoardingCubit` class manages the state related to onboarding in the application.
+/// It handles actions such as caching data for first-time users and checking first-time
+/// user status, subsequently updating the UI state accordingly. This separation of concerns
+/// improves code organization and facilitates testing.
 class OnBoardingCubit extends Cubit<OnBoardingState> {
   OnBoardingCubit({
     required CacheFirstTimer cacheFirstTimer,
@@ -21,11 +22,11 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   final CacheFirstTimer _cacheFirstTimer;
   final CheckIfUserIsFirstTimer _checkIfUserIsFirstTimer;
 
-  /// This method is used to cache the first-time user data. It emits a state of
-  /// `CachingFirstTimer` to indicate that the caching process has started. Then
-  /// it calls the `_cacheFirstTimer()` method to execute the caching logic.
-  /// Depending on the result, it emits either an `OnBoardingError` state (if
-  /// there's a failure) or a `UserCached` state (if the caching is successful).
+  /// Caches first-time user data. It emits a `CachingFirstTimer` state to indicate
+  /// the start of the caching process. Subsequently, it invokes the `_cacheFirstTimer()`
+  /// method to execute the caching logic. Based on the result, it emits either an
+  /// `OnBoardingError` state (in case of failure) or a `UserCached` state (if caching
+  /// is successful).
   Future<void> cacheFirstTimer() async {
     emit(const CachingFirstTimer());
 
@@ -37,12 +38,11 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     );
   }
 
-  /// This method is used to check if the user is a first-time user. It emits a
-  /// state of `CheckingIfUserIsFirstTimer` to indicate that the checking proces
-  /// has started. Then, it calls the `_checkIfUserIsFirstTimer()` method to
-  /// execute the checking logic. Depending on the result, it emits either an
-  /// `OnBoardingStatus` state (indicating whether the user is a first-time
-  /// user) or an `OnBoardingError` state (if there's a failure).
+  /// Checks if the user is a first-time user. It emits a `CheckingIfUserIsFirstTimer`
+  /// state to indicate the start of the verification process. Subsequently, it calls
+  /// the `_checkIfUserIsFirstTimer()` method to perform the verification. Depending
+  /// on the result, it emits either an `OnBoardingStatus` state (indicating the user's
+  /// first-time status) or an `OnBoardingError` state (in case of failure).
   Future<void> checkIfUserIsFirstTimer() async {
     emit(const CheckingIfUserIsFirstTimer());
 

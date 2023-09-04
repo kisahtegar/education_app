@@ -2,9 +2,10 @@ import 'package:education_app/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-/// This used to display a `Page Under Construction` screen in your app. This
-/// screen typically informs users that a particular page or feature is not yet
-/// available or is currently in development
+/// The `PageUnderConstruction` widget is used to display a "Page Under
+/// Construction" screen in your app. This screen is typically shown to inform
+/// users that a particular page or feature is not yet available or is currently
+/// in development.
 class PageUnderConstruction extends StatelessWidget {
   const PageUnderConstruction({super.key});
 
@@ -16,11 +17,17 @@ class PageUnderConstruction extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(MediaRes.onBoardingBackground),
+            // Ensure the background image covers the entire screen.
             fit: BoxFit.cover,
           ),
         ),
         child: SafeArea(
-          child: Center(child: Lottie.asset(MediaRes.pageUnderConstruction)),
+          child: Center(
+            child: Lottie.asset(
+              // Use Lottie animation to display the construction animation.
+              MediaRes.pageUnderConstruction,
+            ),
+          ),
         ),
       ),
     );

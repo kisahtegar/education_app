@@ -12,10 +12,17 @@ import 'package:equatable/equatable.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-/// `AuthBloc` is designed to manage user authentication and profile-related
-/// logic in application, handling events and emitting appropriate states as
+/// The `AuthBloc` is designed to manage user authentication and profile-related
+/// logic in the application, handling events and emitting appropriate states as
 /// authentication operations progress.
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  /// Initializes a new instance of the `AuthBloc` with the required use case
+  /// dependencies.
+  ///
+  /// - [_signIn] - Use case for user sign-in.
+  /// - [_signUp] - Use case for user sign-up.
+  /// - [_forgotPassword] - Use case for forgot password functionality.
+  /// - [_updateUser] - Use case for updating user profile information.
   AuthBloc({
     required SignIn signIn,
     required SignUp signUp,
@@ -40,7 +47,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final ForgotPassword _forgotPassword;
   final UpdateUser _updateUser;
 
-  /// For sign in logic
+  /// Handler for sign-in logic.
   Future<void> _signInHandler(
     SignInEvent event,
     Emitter<AuthState> emit,
@@ -57,7 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  /// For sign up logic
+  /// Handler for sign-up logic.
   Future<void> _signUpHandler(
     SignUpEvent event,
     Emitter<AuthState> emit,
@@ -75,7 +82,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  /// For forgot password logic
+  /// Handler for forgot password logic.
   Future<void> _forgotPasswordHandler(
     ForgotPasswordEvent event,
     Emitter<AuthState> emit,
@@ -87,7 +94,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  /// For update user logic
+  /// Handler for update user logic.
   Future<void> _updateUserHandler(
     UpdateUserEvent event,
     Emitter<AuthState> emit,

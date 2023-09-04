@@ -1,8 +1,28 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 
-/// This custom input field widget. This widget is designed to simplify the
-/// creation of text input fields with various customization options.
+/// The `IField` widget simplifies the creation of customizable text input
+/// fields. It offers various options for customization, making it a versatile
+/// choice for integrating input fields into your app's user interface.
 class IField extends StatelessWidget {
+  /// Creates an `IField` widget with customizable options.
+  ///
+  /// - `controller` is required and represents the TextEditingController used
+  ///   to manage the input field's text.
+  /// - `filled` determines whether the input field should have a filled
+  ///   background.
+  /// - `obscureText` specifies whether the input should obscure the entered
+  ///   text (e.g., for password fields).
+  /// - `readOnly` defines whether the input field is read-only.
+  /// - `validator` is an optional callback function to validate the input value.
+  /// - `fillColour` allows you to set a custom fill color for the input field.
+  /// - `suffixIcon` provides an optional icon to display as a suffix.
+  /// - `hintText` is the placeholder text displayed when the input field is empty.
+  /// - `keyboardType` sets the keyboard type for the input.
+  /// - `hintStyle` allows customization of the hint text's style.
+  /// - `overrideValidator` specifies whether to override the default required
+  ///   field validation.
   const IField({
     required this.controller,
     this.filled = false,

@@ -1,18 +1,20 @@
+// ignore_for_file: lines_longer_than_80_chars
 part of 'injection_container.dart';
 
-// This used to sets up and initializes your app dependency injection container
-// (sl) with various services and dependencies related to onboarding and
-// authentication functionality. By using dependency injection, you can manage
-// the creation and sharing of these services and dependencies throughout your
-// app, making it more modular and maintainable.
+/// This file sets up and initializes the dependency injection container for your app (sl).
+/// It configures various services and dependencies related to onboarding and authentication functionality.
+/// By using dependency injection, you can efficiently manage the creation and sharing of these services
+/// and dependencies throughout your app, making it more modular and maintainable.
 
 final sl = GetIt.instance;
 
+/// Initializes the dependencies related to onboarding and user authentication.
 Future<void> init() async {
   await _initOnBoarding();
   await _initAuth();
 }
 
+/// Initializes the onboarding-related dependencies.
 Future<void> _initOnBoarding() async {
   final prefs = await SharedPreferences.getInstance();
   sl
@@ -33,6 +35,7 @@ Future<void> _initOnBoarding() async {
     ..registerLazySingleton(() => prefs);
 }
 
+/// Initializes the authentication-related dependencies.
 Future<void> _initAuth() async {
   sl
     ..registerFactory(

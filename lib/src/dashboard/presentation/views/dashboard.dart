@@ -10,14 +10,15 @@ import 'package:flutter/services.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 
-/// `Dashboard` widget is responsible for displaying the main user interface of
-/// app's dashboard. It listens to changes in user data using a `StreamBuilder`,
+/// The `Dashboard` widget is responsible for displaying the main user interface of
+/// the app's dashboard. It listens to changes in user data using a `StreamBuilder`,
 /// controls the active screen with an `IndexedStack`, and provides navigation
 /// using a `BottomNavigationBar`. It also updates the user data in the `UserProvider`
 /// when new data is available.
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
+  /// The route name used to navigate to the dashboard screen.
   static const routeName = '/dashboard';
 
   @override
@@ -43,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
       stream: DashboardUtils.userDataStream,
       builder: (_, snapshot) {
         if (snapshot.hasData && snapshot.data is LocalUserModel) {
-          // update the user data in the [UserProvider] using
+          // Update the user data in the [UserProvider] using
           context.read<UserProvider>().user = snapshot.data;
         }
         return Consumer<DashboardController>(

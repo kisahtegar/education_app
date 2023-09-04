@@ -4,11 +4,12 @@ part of 'auth_bloc.dart';
 /// actions and events related to authentication in the application. They
 /// encapsulate the necessary data for each event and ensure type safety during
 /// event creation. These events will likely be used to trigger state changes
-/// and perform corresponding authentication logic within the AuthBloc.
+/// and perform corresponding authentication logic within the `AuthBloc`.
 sealed class AuthEvent extends Equatable {
   const AuthEvent();
 }
 
+/// Represents an event for user sign-in.
 final class SignInEvent extends AuthEvent {
   const SignInEvent({
     required this.email,
@@ -22,6 +23,7 @@ final class SignInEvent extends AuthEvent {
   List<String> get props => [email, password];
 }
 
+/// Represents an event for user sign-up.
 final class SignUpEvent extends AuthEvent {
   const SignUpEvent({
     required this.email,
@@ -37,6 +39,7 @@ final class SignUpEvent extends AuthEvent {
   List<String> get props => [email, password, name];
 }
 
+/// Represents an event for password reset.
 final class ForgotPasswordEvent extends AuthEvent {
   const ForgotPasswordEvent(this.email);
 
@@ -46,6 +49,7 @@ final class ForgotPasswordEvent extends AuthEvent {
   List<String> get props => [email];
 }
 
+/// Represents an event for updating user profile information.
 final class UpdateUserEvent extends AuthEvent {
   UpdateUserEvent({
     required this.action,

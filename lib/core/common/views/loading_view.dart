@@ -1,7 +1,9 @@
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-/// This widget used to show loading view
+/// The `LoadingView` widget is designed to display a loading indicator
+/// within the application. It provides a centered loading spinner to inform
+/// users that an operation is in progress.
 class LoadingView extends StatelessWidget {
   const LoadingView({super.key});
 
@@ -11,6 +13,8 @@ class LoadingView extends StatelessWidget {
       type: MaterialType.transparency,
       child: Center(
         child: CircularProgressIndicator(
+          /// Sets the loading indicator color to match the secondary color
+          /// scheme of the current app theme.
           valueColor: AlwaysStoppedAnimation<Color>(
             context.theme.colorScheme.secondary,
           ),

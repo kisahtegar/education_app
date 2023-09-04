@@ -1,10 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:education_app/core/errors/failures.dart';
 import 'package:education_app/src/on_boarding/domain/repository/on_boarding_repository.dart';
 import 'package:education_app/src/on_boarding/domain/usecases/cache_first_timer.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import 'on_boarding_repository.mock.dart';
 
@@ -18,7 +17,7 @@ void main() {
   });
 
   test(
-    'should call the [OnBoardingRepository.cacheFirstTimer]'
+    'should call the [OnBoardingRepository.cacheFirstTimer] '
     'and return the right data',
     () async {
       // Arrange

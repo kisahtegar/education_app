@@ -1,11 +1,12 @@
 import 'package:education_app/core/errors/exceptions.dart';
 import 'package:equatable/equatable.dart';
 
-/// The `Failure` class is an abstract class that serves as a base class for
-/// representing failures or errors that can occur within your application. It
-/// provides a structured way to handle and manage different types of failures
-/// and includes properties and methods to help in error reporting and handling.
+/// The `Failure` class is an abstract base class that represents failures or
+/// errors that can occur within your application. It provides a structured way
+/// to handle and manage different types of failures, including properties and
+/// methods for error reporting and handling.
 abstract class Failure extends Equatable {
+  /// Creates a [Failure] instance with the provided [message] and [statusCode].
   Failure({
     required this.message,
     required this.statusCode,
@@ -14,13 +15,17 @@ abstract class Failure extends Equatable {
           'StatusCode cannot be a ${statusCode.runtimeType}',
         );
 
+  /// A descriptive error message explaining the failure.
   final String message;
+
+  /// The status code associated with the failure, which can be of type
+  /// [int] or [String].
   final dynamic statusCode;
 
-  /// The class defines a getter method called `errorMessage`, which generates
-  /// a formatted error message by combining the `statusCode` and `message`.
-  /// If the `statusCode` is of type String, it doesn't append `"Error"` to it;
-  /// otherwise, it appends "Error" to indicate an error condition.
+  /// Generates a formatted error message by combining the [statusCode] and
+  /// [message]. If the [statusCode] is of type [String], it doesn't append
+  /// "Error" to it; otherwise, it appends "Error" to indicate an error
+  /// condition.
   String get errorMessage =>
       '$statusCode${statusCode is String ? '' : '  Error'}: $message';
 
@@ -28,24 +33,27 @@ abstract class Failure extends Equatable {
   List<Object?> get props => [message, statusCode];
 }
 
-/// This class provides a structured way to handle and report errors that occur
-/// specifically during cache-related operations.
+/// A specialized [Failure] class for handling and reporting errors related to
+/// cache operations.
 class CacheFailure extends Failure {
+  /// Creates a [CacheFailure] instance with the provided [message] and
+  /// [statusCode].
   CacheFailure({required super.message, required super.statusCode});
 }
 
-/// This class provides a structured way to handle and report errors that occur
-/// specifically during interactions with a server, such as making HTTP requests
+/// A specialized [Failure] class for handling and reporting errors related to
+/// server interactions, such as making HTTP requests.
 class ServerFailure extends Failure {
+  /// Creates a [ServerFailure] instance with the provided [message] and
+  /// [statusCode].
   ServerFailure({required super.message, required super.statusCode});
 
-  /// This constructor is used to create a `ServerFailure` instance based on a
-  /// `ServerException`. It extracts the `message` and `statusCode` properties
-  /// from the `ServerException` and uses them to initialize `ServerFailure`
-  /// instance.
+  /// Creates a [ServerFailure] instance based on a [ServerException].
   ///
-  /// This can be helpful when you want to convert specific server exceptions
-  /// into application-specific failure types.
+  /// This constructor extracts the [message] and [statusCode] properties from
+  /// the [ServerException] and uses them to initialize the [ServerFailure]
+  /// instance. It can be useful for converting specific server exceptions into
+  /// application-specific failure types.
   ServerFailure.fromException(ServerException exception)
       : this(
           message: exception.message,

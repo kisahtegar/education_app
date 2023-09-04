@@ -13,9 +13,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// A screen for user sign-in.
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
+  /// The route name for this screen.
   static const routeName = '/sign-in';
 
   @override

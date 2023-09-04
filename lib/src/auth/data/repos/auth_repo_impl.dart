@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:dartz/dartz.dart';
 import 'package:education_app/core/enums/update_user.dart';
 import 'package:education_app/core/errors/exceptions.dart';
@@ -7,20 +9,19 @@ import 'package:education_app/src/auth/data/datasources/auth_remote_data_source.
 import 'package:education_app/src/auth/domain/entities/user.dart';
 import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 
-/// `AuthRepoImpl` acts as a bridge between the application's domain layer
-/// (where use cases and business logic reside) and the remote data source
-/// (Firebase in this case). It handles exceptions thrown by the remote data
-/// source and wraps the results in `Either` values, making it easier for higher
-/// - level components to manage success and failure scenarios during
+/// `AuthRepoImpl` bridges the gap between the application's domain layer
+/// (containing use cases and business logic) and the remote data source (Firebase
+/// in this case). It handles exceptions from the remote data source and wraps
+/// results in `Either` values, simplifying success and failure management during
 /// authentication operations.
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl(this._remoteDataSource);
 
   final AuthRemoteDataSource _remoteDataSource;
 
-  /// This method is responsible for initiating the password reset process for a
-  /// user by calling the `forgotPassword` method of the `_remoteDataSource`. It
-  /// takes the user's email as a parameter.
+  /// Initiates the password reset process for a user by calling `_remoteDataSource.forgotPassword`.
+  ///
+  /// - [email] - The user's email address.
   @override
   ResultFuture<void> forgotPassword(String email) async {
     try {
@@ -31,9 +32,10 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  /// This method is responsible for user sign-in by calling the `signIn` method
-  /// of the `_remoteDataSource`. It takes the user's email and password as
-  /// parameters.
+  /// Performs user sign-in by calling `_remoteDataSource.signIn`.
+  ///
+  /// - [email] - The user's email address.
+  /// - [password] - The user's password.
   @override
   ResultFuture<LocalUser> signIn({
     required String email,
@@ -50,9 +52,11 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  /// This method is responsible for user registration (sign-up) by calling the
-  /// `signUp` method of the `_remoteDataSource`. It takes the user's email,
-  /// full name, and password as parameters.
+  /// Handles user registration (sign-up) by calling `_remoteDataSource.signUp`.
+  ///
+  /// - [email] - The user's email address.
+  /// - [fullName] - The user's full name.
+  /// - [password] - The user's password.
   @override
   ResultFuture<void> signUp({
     required String email,
@@ -71,10 +75,11 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  /// This method is used to update user information, such as email, display
-  /// name, bio, profile picture, or password. It calls the updateUser method of
-  /// the `_remoteDataSource` and takes parameters for the action to perform
-  /// (`UpdateUserAction`) and the user data to update.
+  /// Updates user information such as email, display name, bio, profile picture,
+  /// or password by calling `_remoteDataSource.updateUser`.
+  ///
+  /// - [action] - The action to perform (`UpdateUserAction`).
+  /// - [userData] - User data to update.
   @override
   ResultFuture<void> updateUser({
     required UpdateUserAction action,

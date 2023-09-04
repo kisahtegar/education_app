@@ -1,10 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-/// `LocalUser` entity is used to encapsulate user data and make it available
-/// for use throughout the application. It serves as a structured way to
-/// represent and manage user information, facilitating tasks such as
-/// displaying user profiles and interacting with other users within the app.
+/// The `LocalUser` entity encapsulates user data for use throughout the
+/// application. It provides a structured representation of user information,
+/// facilitating tasks such as displaying user profiles and interacting with
+/// other users within the app.
 class LocalUser extends Equatable {
+  /// Constructs a `LocalUser` instance with the specified properties.
   const LocalUser({
     required this.uid,
     required this.email,
@@ -18,9 +19,8 @@ class LocalUser extends Equatable {
     this.bio,
   });
 
-  /// `LocalUser` includes a named constructor `empty` that creates an instance
-  /// with default or empty values for all properties. This is useful for
-  /// initializing an empty user when needed.
+  /// Creates an instance of `LocalUser` with default or empty values for all
+  /// properties. Useful for initializing an empty user when needed.
   const LocalUser.empty()
       : this(
           uid: '',
@@ -35,20 +35,39 @@ class LocalUser extends Equatable {
           followers: const [],
         );
 
+  /// The unique identifier associated with the user.
   final String uid;
+
+  /// The email address of the user.
   final String email;
+
+  /// The user's profile picture URL.
   final String? profilePic;
+
+  /// A short user bio or description.
   final String? bio;
+
+  /// The user's earned points or rewards.
   final int points;
+
+  /// The full name of the user.
   final String fullName;
+
+  /// A list of group IDs the user is a member of.
   final List<String> groupIds;
+
+  /// A list of enrolled course IDs associated with the user.
   final List<String> enrolledCourseIds;
+
+  /// A list of user IDs the user is following.
   final List<String> following;
+
+  /// A list of user IDs following the user.
   final List<String> followers;
 
   /// The `props` method is overridden to provide a list of object properties
   /// that should be considered when determining the equality of two `LocalUser`
-  /// instances. In this case, it includes the `uid` and `email`.
+  /// instances.
   @override
   List<Object?> get props => [
         uid,

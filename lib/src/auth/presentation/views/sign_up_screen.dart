@@ -13,9 +13,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// A screen for user sign-up.
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
+  /// The route name for this screen.
   static const routeName = '/sign-up';
 
   @override
@@ -47,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           if (state is AuthError) {
             CoreUtils.showSnackBar(context, state.message);
           } else if (state is SignedUp) {
-            // If signed up successfully we want to sign in
+            // If signed up successfully, sign in.
             context.read<AuthBloc>().add(
                   SignInEvent(
                     email: emailController.text.trim(),
@@ -55,7 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 );
           } else if (state is SignedIn) {
-            // Then initialize user and push to dashboard.
+            // Then initialize user and navigate to the dashboard.
             context.read<UserProvider>().initUser(state.user as LocalUserModel);
             Navigator.pushReplacementNamed(context, Dashboard.routeName);
           }
