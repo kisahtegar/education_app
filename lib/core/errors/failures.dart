@@ -26,8 +26,15 @@ abstract class Failure extends Equatable {
   /// [message]. If the [statusCode] is of type [String], it doesn't append
   /// "Error" to it; otherwise, it appends "Error" to indicate an error
   /// condition.
-  String get errorMessage =>
-      '$statusCode${statusCode is String ? '' : '  Error'}: $message';
+  ///
+  /// For example, if the [statusCode] is an integer, the resulting error
+  /// message might look like "404 Error: Resource not found." If the
+  /// [statusCode] is a string, it would simply be "Some error message."
+  String get errorMessage {
+    final showErrorText =
+        statusCode is! String || int.tryParse(statusCode as String) != null;
+    return '$statusCode${showErrorText ? ' Error' : ''}: $message';
+  }
 
   @override
   List<Object?> get props => [message, statusCode];

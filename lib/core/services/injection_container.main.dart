@@ -1,17 +1,20 @@
 // ignore_for_file: lines_longer_than_80_chars
 part of 'injection_container.dart';
 
-/// This file sets up and initializes the dependency injection container for your app (sl).
-/// It configures various services and dependencies related to onboarding and authentication functionality.
-/// By using dependency injection, you can efficiently manage the creation and sharing of these services
-/// and dependencies throughout your app, making it more modular and maintainable.
+/// This file sets up and initializes the dependency injection container (sl)
+/// for your app. It configures various services and dependencies related to
+/// different app features. By using dependency injection, you can efficiently
+/// manage the creation and sharing of these services and dependencies throughout
+/// your app, making it more modular and maintainable.
 
 final sl = GetIt.instance;
 
-/// Initializes the dependencies related to onboarding and user authentication.
+/// Initializes the dependencies. This function is called at the start of the
+/// app to set up all necessary dependencies.
 Future<void> init() async {
   await _initOnBoarding();
   await _initAuth();
+  await _initCourse();
 }
 
 /// Initializes the onboarding-related dependencies.
@@ -61,4 +64,25 @@ Future<void> _initAuth() async {
     ..registerLazySingleton(() => FirebaseAuth.instance)
     ..registerLazySingleton(() => FirebaseFirestore.instance)
     ..registerLazySingleton(() => FirebaseStorage.instance);
+}
+
+/// Initializes the course-related dependencies.
+Future<void> _initCourse() async {
+  sl
+    ..registerFactory(
+      () => CourseCubit(
+        addCourse: sl(),
+        getCourses: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => AddCourse(sl()))
+    ..registerLazySingleton(() => GetCourses(sl()))
+    ..registerLazySingleton<CourseRepo>(() => CourseRepoImpl(sl()))
+    ..registerLazySingleton<CourseRemoteDataSrc>(
+      () => CourseRemoteDataSrcImpl(
+        firebaseFirestore: sl(),
+        firebaseStorage: sl(),
+        firebaseAuth: sl(),
+      ),
+    );
 }
