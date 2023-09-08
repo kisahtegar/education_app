@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:education_app/core/enums/update_user.dart';
 import 'package:education_app/core/errors/exceptions.dart';
-import 'package:education_app/core/usecases/constants.dart';
+import 'package:education_app/core/utils/constants.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:education_app/src/auth/data/models/user_model.dart';

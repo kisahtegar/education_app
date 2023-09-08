@@ -1,8 +1,10 @@
 // ignore_for_file: lines_longer_than_80_chars
 
+import 'package:education_app/core/common/app/providers/course_of_the_day_notifier.dart';
 import 'package:education_app/core/common/app/providers/tab_navigator.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/src/auth/domain/entities/user.dart';
+import 'package:education_app/src/course/domain/entities/course.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,4 +44,8 @@ extension ContextExt on BuildContext {
   /// Push a new screen or page onto the navigation stack by calling `push()` on
   /// the `TabNavigator`. Provide a widget as a child of a new `TabItem`.
   void push(Widget page) => tabNavigator.push(TabItem(child: page));
+
+  /// Access the featured "Course of the Day" from the nearest ancestor widget's
+  /// `CourseOfTheDayNotifier`. Simplifies retrieving the current featured course.
+  Course? get courseOfTheDay => read<CourseOfTheDayNotifier>().courseOfTheDay;
 }

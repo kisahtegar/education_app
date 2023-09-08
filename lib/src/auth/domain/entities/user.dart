@@ -65,6 +65,9 @@ class LocalUser extends Equatable {
   /// A list of user IDs following the user.
   final List<String> followers;
 
+  // Checks if the user has administrator privileges.
+  bool get isAdmin => email == 'frocrazy123@gmail.com';
+
   /// The `props` method is overridden to provide a list of object properties
   /// that should be considered when determining the equality of two `LocalUser`
   /// instances.

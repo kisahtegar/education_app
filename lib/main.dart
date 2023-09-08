@@ -1,3 +1,4 @@
+import 'package:education_app/core/common/app/providers/course_of_the_day_notifier.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/fonts.dart';
@@ -46,6 +47,10 @@ class MyApp extends StatelessWidget {
 
         // Provide the DashboardController for controlling dashboard state.
         ChangeNotifierProvider(create: (_) => DashboardController()),
+
+        // Provide the CourseOfTheDayNotifier for managing and notifying the
+        // "Course of the Day" within the application.
+        ChangeNotifierProvider(create: (_) => CourseOfTheDayNotifier()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

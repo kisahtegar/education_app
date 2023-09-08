@@ -1,8 +1,14 @@
 import 'package:education_app/core/common/app/providers/user_provider.dart';
+import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/media_res.dart';
+import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/src/course/presentation/cubit/course_cubit.dart';
+import 'package:education_app/src/course/presentation/widgets/add_course_sheet.dart';
+import 'package:education_app/src/profile/presentation/widgets/admin_button.dart';
 import 'package:education_app/src/profile/presentation/widgets/user_info_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +35,8 @@ import 'package:provider/provider.dart';
 ///    following. Similar to "Followers," it is represented by an [UserInfoCard]
 ///    with a user icon and a theme color (e.g., chemistry).
 ///
-/// These sections provide a quick overview of the user's profile statistics.
+/// Additionally, if the current user is an administrator, an "Add Course"
+/// button is displayed, allowing them to add new courses to the system.
 class ProfileBody extends StatelessWidget {
   const ProfileBody({super.key});
 
@@ -100,6 +107,27 @@ class ProfileBody extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 30),
+            if (context.currentUser!.isAdmin) ...[
+              AdminButton(
+                label: 'Add Course',
+                icon: Icons.newspaper,
+                onPressed: () {
+                  showModalBottomSheet<void>(
+                    context: context,
+                    backgroundColor: Colors.white,
+                    isScrollControlled: true,
+                    showDragHandle: true,
+                    elevation: 0,
+                    useSafeArea: true,
+                    builder: (_) => BlocProvider(
+                      create: (_) => sl<CourseCubit>(),
+                      child: const AddCourseSheet(),
+                    ),
+                  );
+                },
+              ),
+            ],
           ],
         );
       },
