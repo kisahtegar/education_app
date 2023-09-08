@@ -15,6 +15,7 @@ Future<void> init() async {
   await _initOnBoarding();
   await _initAuth();
   await _initCourse();
+  await _initVideo();
 }
 
 /// Initializes the onboarding-related dependencies.
@@ -84,5 +85,17 @@ Future<void> _initCourse() async {
         firebaseStorage: sl(),
         firebaseAuth: sl(),
       ),
+    );
+}
+
+/// Initializes the video-related dependencies.
+Future<void> _initVideo() async {
+  sl
+    ..registerFactory(() => VideoCubit(addVideo: sl(), getVideos: sl()))
+    ..registerLazySingleton(() => AddVideo(sl()))
+    ..registerLazySingleton(() => GetVideos(sl()))
+    ..registerLazySingleton<VideoRepo>(() => VideoRepoImpl(sl()))
+    ..registerLazySingleton<VideoRemoteDataSrc>(
+      () => VideoRemoteDataSrcImpl(firestore: sl(), auth: sl(), storage: sl()),
     );
 }
