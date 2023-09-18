@@ -16,6 +16,8 @@ Future<void> init() async {
   await _initAuth();
   await _initCourse();
   await _initVideo();
+  await _initMaterial();
+  await _initExam();
 }
 
 /// Initializes the onboarding-related dependencies.
@@ -97,5 +99,54 @@ Future<void> _initVideo() async {
     ..registerLazySingleton<VideoRepo>(() => VideoRepoImpl(sl()))
     ..registerLazySingleton<VideoRemoteDataSrc>(
       () => VideoRemoteDataSrcImpl(firestore: sl(), auth: sl(), storage: sl()),
+    );
+}
+
+/// Initializes the material-related dependencies.
+Future<void> _initMaterial() async {
+  sl
+    ..registerFactory(
+      () => MaterialCubit(
+        addMaterial: sl(),
+        getMaterials: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => AddMaterial(sl()))
+    ..registerLazySingleton(() => GetMaterials(sl()))
+    ..registerLazySingleton<MaterialRepo>(() => MaterialRepoImpl(sl()))
+    ..registerLazySingleton<MaterialRemoteDataSrc>(
+      () => MaterialRemoteDataSrcImpl(
+        firestore: sl(),
+        auth: sl(),
+        storage: sl(),
+      ),
+    )
+    ..registerFactory(() => ResourceController(storage: sl(), prefs: sl()));
+}
+
+/// Initializes the exam-related dependencies.
+Future<void> _initExam() async {
+  sl
+    ..registerFactory(
+      () => ExamCubit(
+        getExamQuestions: sl(),
+        getExams: sl(),
+        submitExam: sl(),
+        updateExam: sl(),
+        uploadExam: sl(),
+        getUserCourseExams: sl(),
+        getUserExams: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => GetExamQuestions(sl()))
+    ..registerLazySingleton(() => GetExams(sl()))
+    ..registerLazySingleton(() => SubmitExam(sl()))
+    ..registerLazySingleton(() => UpdateExam(sl()))
+    ..registerLazySingleton(() => UploadExam(sl()))
+    ..registerLazySingleton(() => GetUserCourseExams(sl()))
+    ..registerLazySingleton(() => GetUserExams(sl()))
+    ..registerLazySingleton<ExamRepo>(() => ExamRepoImpl(sl()))
+    ..registerLazySingleton<ExamRemoteDataSrc>(
+      () => ExamRemoteDataSrcImpl(auth: sl(), firestore: sl()),
     );
 }
