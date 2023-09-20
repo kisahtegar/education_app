@@ -7,7 +7,7 @@ import 'package:education_app/src/course/domain/repos/course_repo.dart';
 /// courses from the application. It utilizes the provided `CourseRepo` instance
 /// to perform the retrieval operation and returns a `ResultFuture` containing
 /// the list of courses.
-class GetCourses extends UsecaseWithoutParams<List<Course>> {
+class GetCourses extends FutureUsecaseWithoutParams<List<Course>> {
   /// Creates a `GetCourses` instance with the given `CourseRepo` dependency.
   const GetCourses(this._repo);
 

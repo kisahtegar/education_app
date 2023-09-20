@@ -11,7 +11,7 @@ import 'package:education_app/src/course/features/exams/domain/repos/exam_repo.d
 /// from the associated [ExamRepo] to submit the exam. It returns a [ResultFuture]
 /// indicating the success or failure of the operation. Successful submission
 /// allows the user's answers to be recorded for evaluation.
-class SubmitExam extends UsecaseWithParams<void, UserExam> {
+class SubmitExam extends FutureUsecaseWithParams<void, UserExam> {
   /// Constructs a `SubmitExam` use case with the provided [ExamRepo].
   const SubmitExam(this._repo);
 

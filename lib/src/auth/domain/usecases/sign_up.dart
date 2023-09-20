@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 
 /// The `SignUp` class represents a use case for user registration. It depends
 /// on an `AuthRepo` instance to perform the actual registration operation.
-class SignUp extends UsecaseWithParams<void, SignUpParams> {
+class SignUp extends FutureUsecaseWithParams<void, SignUpParams> {
   /// Initializes a new instance of the `SignUp` use case.
   ///
   /// [_repo] - The authentication repository (`AuthRepo`) responsible for

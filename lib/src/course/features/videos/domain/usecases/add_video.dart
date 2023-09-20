@@ -4,7 +4,7 @@ import 'package:education_app/src/course/features/videos/domain/entities/video.d
 import 'package:education_app/src/course/features/videos/domain/repos/video_repo.dart';
 
 /// A use case responsible for adding a new video to the repository.
-class AddVideo extends UsecaseWithParams<void, Video> {
+class AddVideo extends FutureUsecaseWithParams<void, Video> {
   /// Creates an instance of [AddVideo] with the provided video repository.
   ///
   /// - [repo]: The video repository where the video will be added.

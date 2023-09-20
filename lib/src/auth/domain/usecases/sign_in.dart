@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 
 /// The `SignIn` class represents a use case for user sign-in. It depends on an
 /// `AuthRepo` instance to perform the actual sign-in operation.
-class SignIn extends UsecaseWithParams<LocalUser, SignInParams> {
+class SignIn extends FutureUsecaseWithParams<LocalUser, SignInParams> {
   /// Initializes a new instance of the `SignIn` use case.
   ///
   /// [_repo] - The authentication repository (`AuthRepo`) responsible for

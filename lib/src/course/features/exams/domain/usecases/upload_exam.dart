@@ -11,7 +11,7 @@ import 'package:education_app/src/course/features/exams/domain/repos/exam_repo.d
 /// the associated [ExamRepo] to upload the exam. It returns a [ResultFuture]
 /// indicating the success or failure of the operation. A successful upload
 /// results in the creation of a new exam with the provided details.
-class UploadExam extends UsecaseWithParams<void, Exam> {
+class UploadExam extends FutureUsecaseWithParams<void, Exam> {
   /// Constructs an `UploadExam` use case with the provided [ExamRepo].
   const UploadExam(this._repo);
 

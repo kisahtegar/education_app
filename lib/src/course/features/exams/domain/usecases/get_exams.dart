@@ -9,7 +9,7 @@ import 'package:education_app/src/course/features/exams/domain/repos/exam_repo.d
 /// calls the `getExams` method from the associated [ExamRepo] to fetch the list
 /// of [Exam] instances for the specified course. It returns a [ResultFuture]
 /// containing the list of exams on success or an error on failure.
-class GetExams extends UsecaseWithParams<List<Exam>, String> {
+class GetExams extends FutureUsecaseWithParams<List<Exam>, String> {
   /// Constructs a `GetExams` use case with the provided [ExamRepo].
   const GetExams(this._repo);
 

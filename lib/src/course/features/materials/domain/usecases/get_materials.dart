@@ -6,11 +6,11 @@ import 'package:education_app/src/course/features/materials/domain/repos/materia
 /// A use case responsible for retrieving a list of materials associated with a
 /// course.
 ///
-/// This use case extends [UsecaseWithParams] and takes a [String] parameter as
+/// This use case extends [FutureUsecaseWithParams] and takes a [String] parameter as
 /// input, representing the unique identifier of the course for which materials
 /// should be retrieved. It interacts with the [MaterialRepo] to fetch the
 /// materials.
-class GetMaterials extends UsecaseWithParams<List<Resource>, String> {
+class GetMaterials extends FutureUsecaseWithParams<List<Resource>, String> {
   /// Constructs a [GetMaterials] instance with the provided [MaterialRepo].
   const GetMaterials(this._repo);
 

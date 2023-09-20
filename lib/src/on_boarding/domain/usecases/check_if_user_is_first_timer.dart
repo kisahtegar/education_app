@@ -8,9 +8,9 @@ import 'package:education_app/src/on_boarding/domain/repository/on_boarding_repo
 /// whether a user is a first-time user, providing a convenient way for the app to
 /// access this information.
 ///
-/// This use case extends the [UsecaseWithoutParams] class and, when executed,
+/// This use case extends the [FutureUsecaseWithoutParams] class and, when executed,
 /// calls the `checkIfUserIsFirstTimer` method from the injected `OnBoardingRepository`.
-class CheckIfUserIsFirstTimer extends UsecaseWithoutParams<bool> {
+class CheckIfUserIsFirstTimer extends FutureUsecaseWithoutParams<bool> {
   /// Creates a new instance of the `CheckIfUserIsFirstTimer` use case.
   ///
   /// The `OnBoardingRepository` is provided as a dependency, which will be used

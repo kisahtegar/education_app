@@ -13,7 +13,8 @@ import 'package:education_app/src/course/features/exams/domain/repos/exam_repo.d
 /// list of [UserExam] instances specific to the user and the specified course.
 /// It returns a [ResultFuture] containing the list of user-specific exams on
 /// success or an error on failure.
-class GetUserCourseExams extends UsecaseWithParams<List<UserExam>, String> {
+class GetUserCourseExams
+    extends FutureUsecaseWithParams<List<UserExam>, String> {
   /// Constructs a `GetUserCourseExams` use case with the provided [ExamRepo].
   const GetUserCourseExams(this._repo);
 

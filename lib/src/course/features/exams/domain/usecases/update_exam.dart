@@ -11,7 +11,7 @@ import 'package:education_app/src/course/features/exams/domain/repos/exam_repo.d
 /// the associated [ExamRepo] to update the exam. It returns a [ResultFuture]
 /// indicating the success or failure of the operation. Successful update ensures
 /// that exam details, such as title, description, and time limit, are modified.
-class UpdateExam extends UsecaseWithParams<void, Exam> {
+class UpdateExam extends FutureUsecaseWithParams<void, Exam> {
   /// Constructs an `UpdateExam` use case with the provided [ExamRepo].
   const UpdateExam(this._repo);
 

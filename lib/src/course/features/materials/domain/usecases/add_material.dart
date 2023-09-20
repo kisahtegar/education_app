@@ -5,10 +5,10 @@ import 'package:education_app/src/course/features/materials/domain/repos/materia
 
 /// A use case responsible for adding a new material to the course materials.
 ///
-/// This use case extends [UsecaseWithParams] and takes a [Resource] instance
+/// This use case extends [FutureUsecaseWithParams] and takes a [Resource] instance
 /// as input, representing the material to be added. It interacts with the
 /// [MaterialRepo] to perform the addition operation.
-class AddMaterial extends UsecaseWithParams<void, Resource> {
+class AddMaterial extends FutureUsecaseWithParams<void, Resource> {
   /// Constructs an [AddMaterial] instance with the provided [MaterialRepo].
   const AddMaterial(this._repo);
 

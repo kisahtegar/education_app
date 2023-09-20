@@ -10,16 +10,22 @@ import 'package:education_app/core/utils/typedefs.dart';
 /// implementations for the `call` method, tailored to your application's
 /// requirements.
 
-abstract class UsecaseWithParams<Type, Params> {
-  const UsecaseWithParams();
+abstract class FutureUsecaseWithParams<Type, Params> {
+  const FutureUsecaseWithParams();
 
   /// Executes the use case with the provided parameters.
   ResultFuture<Type> call(Params params);
 }
 
-abstract class UsecaseWithoutParams<Type> {
-  const UsecaseWithoutParams();
+abstract class FutureUsecaseWithoutParams<Type> {
+  const FutureUsecaseWithoutParams();
 
   /// Executes the use case without requiring any parameters.
   ResultFuture<Type> call();
+}
+
+abstract class StreamUsecaseWithoutParams<Type> {
+  const StreamUsecaseWithoutParams();
+
+  ResultStream<Type> call();
 }

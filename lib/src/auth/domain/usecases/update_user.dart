@@ -7,7 +7,7 @@ import 'package:equatable/equatable.dart';
 /// The `UpdateUser` class represents a use case for updating user profile
 /// information. It depends on an `AuthRepo` instance to perform the actual
 /// profile update operation.
-class UpdateUser extends UsecaseWithParams<void, UpdateUserParams> {
+class UpdateUser extends FutureUsecaseWithParams<void, UpdateUserParams> {
   /// Initializes a new instance of the `UpdateUser` use case.
   ///
   /// [_repo] - The authentication repository (`AuthRepo`) responsible for

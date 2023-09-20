@@ -11,9 +11,9 @@ import 'package:education_app/src/on_boarding/domain/repository/on_boarding_repo
 /// process or any other scenario requiring the caching of this particular
 /// information.
 ///
-/// This use case extends the [UsecaseWithoutParams] class and, when executed,
+/// This use case extends the [FutureUsecaseWithoutParams] class and, when executed,
 /// calls the `cacheFirstTimer` method from the injected `OnBoardingRepository`.
-class CacheFirstTimer extends UsecaseWithoutParams<void> {
+class CacheFirstTimer extends FutureUsecaseWithoutParams<void> {
   /// Creates a new instance of the `CacheFirstTimer` use case.
   ///
   /// The `OnBoardingRepository` is provided as a dependency, which will be used

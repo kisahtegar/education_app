@@ -8,7 +8,7 @@ import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 /// class adheres to the common use case design pattern, separating the use case
 /// logic from the rest of the application and facilitating reusability and
 /// testability.
-class ForgotPassword extends UsecaseWithParams<void, String> {
+class ForgotPassword extends FutureUsecaseWithParams<void, String> {
   /// Initializes a new instance of the `ForgotPassword` use case.
   ///
   /// [_repo] - The authentication repository (`AuthRepo`) responsible for

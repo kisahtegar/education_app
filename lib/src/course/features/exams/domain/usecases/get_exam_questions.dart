@@ -13,7 +13,8 @@ import 'package:education_app/src/course/features/exams/domain/repos/exam_repo.d
 /// from the associated [ExamRepo] to fetch the list of [ExamQuestion] instances.
 /// It returns a [ResultFuture] containing the list of questions on success or
 /// an error on failure.
-class GetExamQuestions extends UsecaseWithParams<List<ExamQuestion>, Exam> {
+class GetExamQuestions
+    extends FutureUsecaseWithParams<List<ExamQuestion>, Exam> {
   /// Constructs a `GetExamQuestions` use case with the provided [ExamRepo].
   const GetExamQuestions(this._repo);
 
