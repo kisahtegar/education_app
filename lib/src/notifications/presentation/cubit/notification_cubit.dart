@@ -13,6 +13,7 @@ import 'package:equatable/equatable.dart';
 
 part 'notification_state.dart';
 
+/// A [Cubit] responsible for managing notification-related states and actions.
 class NotificationCubit extends Cubit<NotificationState> {
   NotificationCubit({
     required Clear clear,
@@ -33,6 +34,7 @@ class NotificationCubit extends Cubit<NotificationState> {
   final MarkAsRead _markAsRead;
   final SendNotification _sendNotification;
 
+  /// Clears a notification by its [notificationId].
   Future<void> clear(String notificationId) async {
     emit(const ClearingNotifications());
     final result = await _clear(notificationId);
@@ -42,6 +44,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     );
   }
 
+  /// Clears all notifications.
   Future<void> clearAll() async {
     emit(const ClearingNotifications());
     final result = await _clearAll();
@@ -51,6 +54,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     );
   }
 
+  /// Marks a notification as read by its [notificationId].
   Future<void> markAsRead(String notificationId) async {
     final result = await _markAsRead(notificationId);
     result.fold(
@@ -59,6 +63,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     );
   }
 
+  /// Sends a new [notification].
   Future<void> sendNotification(Notification notification) async {
     emit(const SendingNotification());
     final result = await _sendNotification(notification);
@@ -68,6 +73,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     );
   }
 
+  /// Retrieves and emits notifications from the data source.
   void getNotifications() {
     emit(const GettingNotifications());
     StreamSubscription<Either<Failure, List<Notification>>>? subscription;

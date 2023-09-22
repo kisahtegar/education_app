@@ -12,6 +12,7 @@ import 'package:education_app/src/course/features/exams/domain/usecases/upload_e
 import 'package:equatable/equatable.dart';
 part 'exam_state.dart';
 
+/// Manages the state and logic for exam-related operations in the application.
 class ExamCubit extends Cubit<ExamState> {
   ExamCubit({
     required GetExamQuestions getExamQuestions,
@@ -38,6 +39,7 @@ class ExamCubit extends Cubit<ExamState> {
   final GetUserCourseExams _getUserCourseExams;
   final GetUserExams _getUserExams;
 
+  /// Fetches exam questions for a given exam.
   Future<void> getExamQuestions(Exam exam) async {
     emit(const GettingExamQuestions());
     final result = await _getExamQuestions(exam);
@@ -47,6 +49,7 @@ class ExamCubit extends Cubit<ExamState> {
     );
   }
 
+  /// Fetches exams for a given course ID.
   Future<void> getExams(String courseId) async {
     emit(const GettingExams());
     final result = await _getExams(courseId);
@@ -56,6 +59,7 @@ class ExamCubit extends Cubit<ExamState> {
     );
   }
 
+  /// Submits an exam.
   Future<void> submitExam(UserExam exam) async {
     emit(const SubmittingExam());
     final result = await _submitExam(exam);
@@ -65,6 +69,7 @@ class ExamCubit extends Cubit<ExamState> {
     );
   }
 
+  /// Updates an exam.
   Future<void> updateExam(Exam exam) async {
     emit(const UpdatingExam());
     final result = await _updateExam(exam);
@@ -74,6 +79,7 @@ class ExamCubit extends Cubit<ExamState> {
     );
   }
 
+  /// Uploads an exam.
   Future<void> uploadExam(Exam exam) async {
     emit(const UploadingExam());
     final result = await _uploadExam(exam);
@@ -83,6 +89,7 @@ class ExamCubit extends Cubit<ExamState> {
     );
   }
 
+  /// Fetches user exams for a given course ID.
   Future<void> getUserCourseExams(String courseId) async {
     emit(const GettingUserExams());
     final result = await _getUserCourseExams(courseId);
@@ -92,6 +99,7 @@ class ExamCubit extends Cubit<ExamState> {
     );
   }
 
+  /// Fetches user exams.
   Future<void> getUserExams() async {
     emit(const GettingUserExams());
     final result = await _getUserExams();

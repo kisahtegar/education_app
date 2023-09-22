@@ -1,4 +1,5 @@
-/// The `IntExt` extension adds functionality to integers for estimating values.
+/// The `IntExt` extension enhances integer functionality, including estimating
+/// values and handling time durations.
 extension IntExt on int {
   /// Estimates the value, providing a human-friendly representation.
   ///
@@ -19,10 +20,31 @@ extension IntExt on int {
     return 'over $data';
   }
 
+  /// Returns 's' for pluralization if the integer is greater than 1 or zero,
+  /// and an empty string for singular.
   String get pluralize {
     return (this > 1 || this == 0) ? 's' : '';
   }
 
+  /// Converts the integer into a human-readable duration format.
+  ///
+  /// - If the integer represents seconds, it returns '${this}s'.
+  /// - If the integer represents minutes, it returns '${this}m'.
+  /// - If the integer represents hours, it returns '${this}h'.
+  /// - If the integer represents days, it returns '${this}d'.
+  ///
+  /// Example:
+  /// ```dart
+  /// final seconds = 45;
+  /// final minutes = 150;
+  /// final hours = 7200;
+  /// final days = 129600;
+  ///
+  /// print(seconds.displayDuration); // Output: '45s'
+  /// print(minutes.displayDuration); // Output: '2m'
+  /// print(hours.displayDuration);   // Output: '2h'
+  /// print(days.displayDuration);    // Output: '2d'
+  /// ```
   String get displayDuration {
     if (this <= 60) return '${this}s';
     if (this <= 3600) return '${(this / 60).round()}m';
@@ -30,6 +52,25 @@ extension IntExt on int {
     return '${(this / 86400).round()}d';
   }
 
+  /// Converts the integer into a human-readable long duration format.
+  ///
+  /// - If the integer represents seconds, it returns '$this seconds'.
+  /// - If the integer represents minutes, it returns '${this} minutes'.
+  /// - If the integer represents hours, it returns '${this} hours'.
+  /// - If the integer represents days, it returns '${this} days'.
+  ///
+  /// Example:
+  /// ```dart
+  /// final seconds = 45;
+  /// final minutes = 150;
+  /// final hours = 7200;
+  /// final days = 129600;
+  ///
+  /// print(seconds.displayDurationLong); // Output: '45 seconds'
+  /// print(minutes.displayDurationLong); // Output: '2 minutes'
+  /// print(hours.displayDurationLong);   // Output: '2 hours'
+  /// print(days.displayDurationLong);    // Output: '2 days'
+  /// ```
   String get displayDurationLong {
     if (this <= 60) return '$this seconds';
     if (this <= 3600) return '${(this / 60).round()} minutes';

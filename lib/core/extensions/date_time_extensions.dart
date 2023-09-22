@@ -1,6 +1,23 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:education_app/core/extensions/int_extensions.dart';
 
+/// Extension on the [DateTime] class to provide a human-readable time ago format.
 extension DateTimeExt on DateTime {
+  /// Converts a [DateTime] object to a human-readable time ago format.
+  ///
+  /// It calculates the time difference between the current time and the given
+  /// [DateTime], and returns a string representing how long ago the provided
+  /// date was. The format varies from seconds, minutes, hours, days, months, to
+  /// years.
+  ///
+  /// Example output:
+  /// - "3 years ago"
+  /// - "2 months ago"
+  /// - "5 days ago"
+  /// - "1 hour ago"
+  /// - "30 minutes ago"
+  /// - "now" (for current time)
   String get timeAgo {
     final nowUtc = DateTime.now().toUtc();
 

@@ -4,7 +4,16 @@ import 'package:education_app/core/extensions/enum_extensions.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/notifications/domain/entities/notification.dart';
 
+/// A model class representing a notification in the application.
 class NotificationModel extends Notification {
+  /// Constructs a [NotificationModel] instance with the provided attributes.
+  ///
+  /// - [id] is the unique identifier of the notification.
+  /// - [title] is the title of the notification.
+  /// - [body] is the content or message of the notification.
+  /// - [category] is the category or type of the notification.
+  /// - [seen] indicates whether the notification has been seen or not.
+  /// - [sentAt] is the timestamp when the notification was sent.
   const NotificationModel({
     required super.id,
     required super.title,
@@ -14,6 +23,9 @@ class NotificationModel extends Notification {
     super.seen,
   });
 
+  /// Constructs a [NotificationModel] instance from a map of data.
+  ///
+  /// [map] is the data map containing notification information.
   NotificationModel.fromMap(DataMap map)
       : super(
           id: map['id'] as String,
@@ -24,6 +36,7 @@ class NotificationModel extends Notification {
           sentAt: (map['sentAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
         );
 
+  /// Constructs an empty [NotificationModel] instance with default values.
   NotificationModel.empty()
       : this(
           id: '_empty.id',
@@ -34,6 +47,10 @@ class NotificationModel extends Notification {
           sentAt: DateTime.now(),
         );
 
+  /// Creates a copy of the current [NotificationModel] with optional attribute
+  /// changes.
+  ///
+  /// This method is useful for updating specific attributes of a notification.
   NotificationModel copyWith({
     String? id,
     String? title,
@@ -52,6 +69,7 @@ class NotificationModel extends Notification {
     );
   }
 
+  /// Converts the [NotificationModel] to a map of data for serialization.
   DataMap toMap() => {
         'id': id,
         'title': title,

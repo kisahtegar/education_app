@@ -1,9 +1,26 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/course/features/exams/data/models/question_choice_model.dart';
 import 'package:education_app/src/course/features/exams/domain/entities/exam_question.dart';
 import 'package:education_app/src/course/features/exams/domain/entities/question_choice.dart';
 
+/// A concrete implementation of the [ExamQuestion] entity representing a
+/// question in an exam.
+///
+/// This model class provides methods for creating instances of
+/// [ExamQuestionModel] from different sources, including data maps received
+/// during uploads, and copying instances with optional attribute values changed.
 class ExamQuestionModel extends ExamQuestion {
+  /// Constructs an [ExamQuestionModel] instance with the specified attributes.
+  ///
+  /// - [id] is the unique identifier of the question.
+  /// - [examId] is the unique identifier of the exam this question belongs to.
+  /// - [courseId] is the unique identifier of the course associated with the
+  ///   question.
+  /// - [questionText] is the text of the question.
+  /// - [choices] is a list of choices for this multiple-choice question.
+  /// - [correctAnswer] (optional) is the identifier of the correct choice.
   const ExamQuestionModel({
     required super.id,
     required super.courseId,
@@ -13,6 +30,7 @@ class ExamQuestionModel extends ExamQuestion {
     super.correctAnswer,
   });
 
+  /// Creates an empty [ExamQuestionModel] instance for testing purposes.
   const ExamQuestionModel.empty()
       : this(
           id: 'Test String',
@@ -23,6 +41,10 @@ class ExamQuestionModel extends ExamQuestion {
           correctAnswer: 'Test String',
         );
 
+  /// Constructs an [ExamQuestionModel] instance from a map of data.
+  ///
+  /// - [map] is a data map containing the attributes needed to create the
+  ///   question.
   ExamQuestionModel.fromMap(DataMap map)
       : this(
           id: map['id'] as String,
@@ -35,6 +57,11 @@ class ExamQuestionModel extends ExamQuestion {
               .toList(),
         );
 
+  /// Constructs an [ExamQuestionModel] instance from data received during an
+  /// upload.
+  ///
+  /// - [map] is a data map containing the attributes needed to create the
+  ///   question.
   ExamQuestionModel.fromUploadMap(DataMap map)
       : this(
           id: map['id'] as String? ?? '',
@@ -47,6 +74,18 @@ class ExamQuestionModel extends ExamQuestion {
               .toList(),
         );
 
+  /// Creates a copy of this [ExamQuestionModel] with optional attribute values
+  /// changed.
+  ///
+  /// - [id] (optional) is the unique identifier of the question.
+  /// - [examId] (optional) is the unique identifier of the exam this question
+  ///   belongs to.
+  /// - [courseId] (optional) is the unique identifier of the course associated
+  ///   with the question.
+  /// - [questionText] (optional) is the text of the question.
+  /// - [choices] (optional) is a list of choices for this multiple-choice
+  ///   question.
+  /// - [correctAnswer] (optional) is the identifier of the correct choice.
   ExamQuestionModel copyWith({
     String? id,
     String? examId,
@@ -65,6 +104,10 @@ class ExamQuestionModel extends ExamQuestion {
     );
   }
 
+  /// Converts this [ExamQuestionModel] instance into a data map.
+  ///
+  /// The data map includes the [id], [examId], [courseId], [questionText],
+  /// [choices], and [correctAnswer] attributes.
   DataMap toMap() {
     return <String, dynamic>{
       'id': id,

@@ -16,6 +16,13 @@ extension StringExt on String {
     return '$username@$domain';
   }
 
+  /// Checks if the `String` represents a YouTube video URL.
+  ///
+  /// Example:
+  /// ```dart
+  /// final videoUrl = 'https://www.youtube.com/watch?v=abc123';
+  /// final isYouTube = videoUrl.isYoutubeVideo; // Output: true
+  /// ```
   bool get isYoutubeVideo =>
       contains('youtube.com/watch?v=') || contains('youtu.be/');
 }

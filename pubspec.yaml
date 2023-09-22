@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  audioplayers: ^5.1.0
+  badges: ^3.1.2
   bloc: ^8.1.2
   chewie: ^1.7.0
   cloud_firestore: ^4.9.0
@@ -83,6 +85,7 @@ flutter:
     - assets/images/
     - assets/lottie/
     - assets/icons/
+    - assets/sounds/
 
   fonts:
     - family: Aeonik

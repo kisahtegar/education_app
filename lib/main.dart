@@ -1,4 +1,5 @@
 import 'package:education_app/core/common/app/providers/course_of_the_day_notifier.dart';
+import 'package:education_app/core/common/app/providers/notifications_notifier.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/fonts.dart';
@@ -10,6 +11,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// The `main` function initializes the Flutter app and sets up Firebase
 /// services and authentication providers.
@@ -51,6 +53,15 @@ class MyApp extends StatelessWidget {
         // Provide the CourseOfTheDayNotifier for managing and notifying the
         // "Course of the Day" within the application.
         ChangeNotifierProvider(create: (_) => CourseOfTheDayNotifier()),
+
+        /// Provides the [NotificationsNotifier] for managing and handling
+        /// notifications within the application, using the provided
+        /// [SharedPreferences] instance [sl].
+        ChangeNotifierProvider(
+          create: (_) => NotificationsNotifier(
+            sl<SharedPreferences>(),
+          ),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -8,7 +8,17 @@ import 'package:education_app/src/course/features/videos/domain/entities/video.d
 import 'package:education_app/src/course/features/videos/presentation/utils/video_utils.dart';
 import 'package:flutter/material.dart';
 
+/// A widget for displaying a video tile with information.
 class VideoTile extends StatelessWidget {
+  /// Creates a [VideoTile] widget.
+  ///
+  ///- The [video] parameter represents the video information to display.
+  ///- The optional [tappable] parameter determines whether the tile is tappable
+  ///  to play the video.
+  ///- The optional [uploadTimePrefix] parameter defines the prefix for the
+  ///  upload time.
+  ///- The optional [isFile] parameter indicates whether the video thumbnail is
+  ///  a local file.
   const VideoTile(
     this.video, {
     super.key,
@@ -17,9 +27,16 @@ class VideoTile extends StatelessWidget {
     this.isFile = false,
   });
 
+  /// The video information to display.
   final Video video;
+
+  /// Determines whether the tile is tappable to play the video.
   final bool tappable;
+
+  /// Indicates whether the video thumbnail is a local file.
   final bool isFile;
+
+  /// Prefix for the upload time.
   final String uploadTimePrefix;
 
   @override
