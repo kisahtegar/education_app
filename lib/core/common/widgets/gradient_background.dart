@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 
-/// The `GradientBackground` widget is used to create a visually appealing
-/// background by overlaying a gradient on top of an image. This widget is
-/// commonly used to enhance the overall visual experience of a screen or a
-/// specific section of your app's user interface.
+/// A custom widget for creating a gradient background over an image.
+///
+/// The `GradientBackground` widget is used to overlay a gradient on top of
+/// an image, creating an appealing visual effect. It is commonly utilized to
+/// enhance the aesthetics of a screen or a specific section within an app's
+/// user interface.
+///
+/// Example:
+///
+/// ```dart
+/// GradientBackground(
+///   image: 'assets/background_image.png',
+///   child: Center(
+///     child: Text('Hello, Gradient Background!'),
+///   ),
+/// )
+/// ```
 class GradientBackground extends StatelessWidget {
   /// Creates a `GradientBackground` with the specified `child` and `image`.
   ///

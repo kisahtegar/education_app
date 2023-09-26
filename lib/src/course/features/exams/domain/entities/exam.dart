@@ -16,7 +16,7 @@ class Exam extends Equatable {
   /// - [id]: The unique identifier for the exam.
   /// - [courseId]: The identifier of the course to which the exam belongs.
   /// - [title]: A title describing the exam.
-  /// - [description]: Additional information about the exam.
+  /// - [description]: A information about the exam.
   /// - [timeLimit]: The time limit for completing the exam in minutes.
   /// - [imageUrl]: An optional URL for the exam's cover image.
   /// - [questions]: A list of exam questions.
@@ -53,8 +53,8 @@ class Exam extends Equatable {
   /// A title describing the exam.
   final String title;
 
-  /// Additional information about the exam.
-  final String? description;
+  /// Information about the exam.
+  final String description;
 
   /// The time limit for completing the exam in minutes.
   final int timeLimit;
