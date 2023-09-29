@@ -15,9 +15,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' show PreviewData;
 import 'package:flutter_link_previewer/flutter_link_previewer.dart';
 
+/// A view for adding a new video to a course.
 class AddVideoView extends StatefulWidget {
   const AddVideoView({super.key});
 
+  /// The route name for this view.
   static const routeName = '/add-video';
 
   @override
@@ -25,14 +27,17 @@ class AddVideoView extends StatefulWidget {
 }
 
 class _AddVideoViewState extends State<AddVideoView> {
+  // Controller
   final urlController = TextEditingController();
   final authorController = TextEditingController(text: 'dbestech');
   final titleController = TextEditingController();
   final courseController = TextEditingController();
   final courseNotifier = ValueNotifier<Course?>(null);
 
+  // Global Key
   final formKey = GlobalKey<FormState>();
 
+  // Model
   VideoModel? video;
   PreviewData? previewData;
 
@@ -48,6 +53,7 @@ class _AddVideoViewState extends State<AddVideoView> {
   bool loading = false;
   bool showingDialog = false;
 
+  /// Resets the state of the view, clearing input fields and resetting flags.
   void reset() {
     setState(() {
       urlController.clear();
@@ -74,9 +80,15 @@ class _AddVideoViewState extends State<AddVideoView> {
     });
   }
 
+  /// Fetches video details based on the provided URL.
   Future<void> fetchVideo() async {
+    // Check if the provided URL is empty, if so, return.
     if (urlController.text.trim().isEmpty) return;
+
+    // Unfocus the input field to dismiss the keyboard.
     FocusManager.instance.primaryFocus?.unfocus();
+
+    // Reset flags and states for loading and video details.
     setState(() {
       getMoreDetails = false;
       loading = false;
@@ -84,14 +96,23 @@ class _AddVideoViewState extends State<AddVideoView> {
       video = null;
       previewData = null;
     });
+
+    // Set the loading flag to true to indicate that video details are being
+    // fetched.
     setState(() {
       loading = true;
     });
+
+    // Check if the provided URL is a valid YouTube URL.
     if (isYoutube) {
+      // Fetch video details using the VideoUtils.getVideoFromYT method.
       video = await VideoUtils.getVideoFromYT(
         context,
         url: urlController.text.trim(),
       ) as VideoModel?;
+
+      // Set the loading flag to false to indicate that video details have been
+      // fetched.
       setState(() {
         loading = false;
       });

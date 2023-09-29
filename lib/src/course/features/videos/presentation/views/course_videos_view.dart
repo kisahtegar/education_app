@@ -11,11 +11,18 @@ import 'package:education_app/src/course/features/videos/presentation/cubit/vide
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// A view for displaying videos associated with a specific course.
 class CourseVideosView extends StatefulWidget {
+  /// Constructs a [CourseVideosView] with the specified course.
+  ///
+  /// The [course] parameter is required and represents the course for which
+  /// videos will be displayed.
   const CourseVideosView(this.course, {super.key});
 
+  /// The route name for this view.
   static const routeName = '/course-videos';
 
+  /// The course for which videos will be displayed.
   final Course course;
 
   @override
@@ -23,6 +30,7 @@ class CourseVideosView extends StatefulWidget {
 }
 
 class _CourseVideosViewState extends State<CourseVideosView> {
+  /// Retrieves videos associated with the course.
   void getVideos() {
     context.read<VideoCubit>().getVideos(widget.course.id);
   }

@@ -13,11 +13,21 @@ import 'package:flutter/material.dart' hide MaterialState;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+/// The `CourseMaterialsView` widget displays materials related to a specific
+/// course.
+///
+/// This widget is used to show a list of course materials, such as documents
+/// and resources, for a given course. It includes a title, back button, and a
+/// list of `ResourceTile` widgets that represent each material. The materials
+/// are retrieved using the `MaterialCubit`.
 class CourseMaterialsView extends StatefulWidget {
+  /// Creates a `CourseMaterialsView` with the specified [course].
   const CourseMaterialsView(this.course, {super.key});
 
+  /// The route name for navigating to this view.
   static const routeName = '/course-materials';
 
+  /// The course for which the materials are displayed.
   final Course course;
 
   @override
@@ -25,6 +35,7 @@ class CourseMaterialsView extends StatefulWidget {
 }
 
 class _CourseMaterialsViewState extends State<CourseMaterialsView> {
+  /// Retrieves the course materials using the [MaterialCubit].
   void getMaterials() {
     context.read<MaterialCubit>().getMaterials(widget.course.id);
   }

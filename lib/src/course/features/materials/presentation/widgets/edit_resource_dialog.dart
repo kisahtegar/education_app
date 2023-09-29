@@ -2,9 +2,20 @@ import 'package:education_app/core/common/widgets/info_field.dart';
 import 'package:education_app/src/course/features/materials/domain/entities/picked_resource.dart';
 import 'package:flutter/material.dart';
 
+/// The `EditResourceDialog` widget is used to display a dialog for editing
+/// a picked resource's title, description, and author.
+///
+/// Users can input or modify the resource's title, description, and author
+/// using the provided text fields. They can then confirm or cancel the changes
+/// using the "Confirm" and "Cancel" buttons respectively.
 class EditResourceDialog extends StatefulWidget {
+  /// Creates an `EditResourceDialog` with the specified [resource].
+  ///
+  /// The [resource] parameter represents the picked resource that will be
+  /// edited.
   const EditResourceDialog(this.resource, {super.key});
 
+  /// The picked resource to be edited.
   final PickedResource resource;
 
   @override

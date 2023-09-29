@@ -4,7 +4,14 @@ import 'package:file_icon/file_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// The `ResourceTile` widget is used to display a tile for a resource.
+///
+/// This widget is typically used in a list or grid to represent a single
+/// resource. It displays the resource's title, author (if available),
+/// description (if available), and a download button. The appearance of the
+/// tile may vary depending on whether the author and description are provided.
 class ResourceTile extends StatelessWidget {
+  /// Creates a `ResourceTile` widget.
   const ResourceTile({super.key});
 
   @override

@@ -12,11 +12,23 @@ import 'package:education_app/src/course/features/exams/presentation/cubit/exam_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// The `ExamDetailsView` widget displays the details of a specific exam.
+///
+/// This widget provides a detailed view of the selected exam, including its
+/// title, description, time limit, and number of questions. Users can start the
+/// exam if questions are available. It also allows users to go back to the
+/// previous screen.
 class ExamDetailsView extends StatefulWidget {
+  /// Creates an `ExamDetailsView` with the specified [exam].
+  ///
+  /// The [exam] parameter represents the exam for which details will be
+  /// displayed.
   const ExamDetailsView(this.exam, {super.key});
 
+  /// The route name used for navigation.
   static const routeName = '/exam-details';
 
+  /// The exam for which details will be displayed.
   final Exam exam;
 
   @override
@@ -24,8 +36,10 @@ class ExamDetailsView extends StatefulWidget {
 }
 
 class _ExamDetailsViewState extends State<ExamDetailsView> {
+  /// The complete exam that includes additional data such as questions.
   late Exam completeExam;
 
+  /// Fetches the questions related to the current exam.
   void getQuestions() {
     context.read<ExamCubit>().getExamQuestions(widget.exam);
   }

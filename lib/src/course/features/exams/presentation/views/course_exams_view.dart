@@ -10,11 +10,24 @@ import 'package:education_app/src/course/features/exams/presentation/views/exam_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// The `CourseExamsView` widget displays a list of exams related to a specific
+/// course.
+///
+/// This widget allows users to view a list of exams associated with the provide
+/// course.
+/// Users can click on an exam to navigate to its details and take the exam if
+/// available.
 class CourseExamsView extends StatefulWidget {
+  /// Creates a `CourseExamsView` with the specified [course].
+  ///
+  /// The [course] parameter represents the course for which the exams will be
+  /// displayed.
   const CourseExamsView(this.course, {super.key});
 
+  /// The route name used for navigation.
   static const routeName = '/course-exams';
 
+  /// The course for which the exams will be displayed.
   final Course course;
 
   @override
@@ -22,6 +35,7 @@ class CourseExamsView extends StatefulWidget {
 }
 
 class _CourseExamsViewState extends State<CourseExamsView> {
+  /// Fetches the exams related to the current course.
   void getExams() {
     context.read<ExamCubit>().getExams(widget.course.id);
   }
