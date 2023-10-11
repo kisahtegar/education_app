@@ -1,10 +1,21 @@
-/// This code defines an extension for the `String` class called `StringExt`.
-/// `Extensions` in Dart allow you to add new functionality to existing classes
-/// without modifying their source code.
+/// The `StringExt` extension provides additional functionality for the `String`
+/// class.
+///
+/// Dart extensions allow you to add new methods to existing classes without
+/// modifying their source code.
 extension StringExt on String {
-  /// easily obscure email addresses by calling `obscureEmail` on a `String`
-  /// containing an email, making it useful for privacy or security purposes
-  /// when displaying email addresses in a partially hidden format.
+  /// Obscures an email address for privacy or security purposes by partially
+  /// hiding it.
+  ///
+  /// It splits the email address into the username and domain parts, obscures
+  /// the username, and displays only the first and last characters.
+  ///
+  /// Example:
+  /// ```dart
+  /// final emailAddress = 'example.email@example.com';
+  /// final obscuredEmail = emailAddress.obscureEmail;
+  /// print(obscuredEmail); // Output: 'e****l@example.com'
+  /// ```
   String get obscureEmail {
     // split the email into username and domain
     final index = indexOf('@');

@@ -8,6 +8,8 @@ import 'package:education_app/src/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/src/home/presentation/views/home_view.dart';
 import 'package:education_app/src/notifications/presentation/cubit/notification_cubit.dart';
 import 'package:education_app/src/profile/presentation/views/profile_view.dart';
+import 'package:education_app/src/quick_access/presentation/providers/quick_access_tab_controller.dart';
+import 'package:education_app/src/quick_access/presentation/views/quick_access_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +38,7 @@ class DashboardController extends ChangeNotifier {
   ///   4. The `ProfileView` screen representing the fourth tab, which displays
   ///      the user's profile information.
   final List<Widget> _screens = [
+    // Home View
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
@@ -55,14 +58,30 @@ class DashboardController extends ChangeNotifier {
       ),
       child: const PersistentView(),
     ),
+
+    // Quick Access View
+    ChangeNotifierProvider(
+      create: (_) => TabNavigator(
+        TabItem(
+          child: BlocProvider(
+            create: (context) => sl<CourseCubit>(),
+            child: ChangeNotifierProvider(
+              create: (_) => QuickAccessTabController(),
+              child: const QuickAccessView(),
+            ),
+          ),
+        ),
+      ),
+      child: const PersistentView(),
+    ),
+
+    // Group View
     ChangeNotifierProvider(
       create: (_) => TabNavigator(TabItem(child: const Placeholder())),
       child: const PersistentView(),
     ),
-    ChangeNotifierProvider(
-      create: (_) => TabNavigator(TabItem(child: const Placeholder())),
-      child: const PersistentView(),
-    ),
+
+    // Profile View
     ChangeNotifierProvider(
       create: (_) => TabNavigator(TabItem(child: const ProfileView())),
       child: const PersistentView(),

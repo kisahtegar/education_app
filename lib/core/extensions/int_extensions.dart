@@ -6,6 +6,15 @@ extension IntExt on int {
   /// If the integer is 10 or less, it returns the integer itself as a string.
   /// For integers greater than 10, it rounds to the nearest multiple of 10 and
   /// returns a string like "over 10" or "over 20" based on the rounded value.
+  ///
+  /// Example:
+  /// ```dart
+  /// final count1 = 5;
+  /// final count2 = 15;
+  ///
+  /// print(count1.estimate); // Output: '5'
+  /// print(count2.estimate); // Output: 'over 10'
+  /// ```
   String get estimate {
     // If the integer is 10 or less, return it as a string.
     if (this <= 10) return '$this';

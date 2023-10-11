@@ -1,0 +1,119 @@
+{
+    "title": "Physics",
+    "image_url": "",
+    "Description": "Physics is the natural science of matter, involving the study of matter, its fundamental constituents, its motion and behavior through space and time, and the related entities of energy and force.",
+    "time_seconds": 500,
+    "questions": [
+      {
+        "question": "What is the capital of France?",
+        "answers": [
+          {
+            "identifier": "A",
+            "Answer": "Paris"
+          },
+          {
+            "identifier": "B",
+            "Answer": "London"
+          },
+          {
+            "identifier": "C",
+            "Answer": "Berlin"
+          },
+          {
+            "identifier": "D",
+            "Answer": "Cuba"
+          }
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "answers": [
+          {
+            "identifier": "A",
+            "Answer": "Mars"
+          },
+          {
+            "identifier": "B",
+            "Answer": "Venus"
+          },
+          {
+            "identifier": "C",
+            "Answer": "Jupiter"
+          },
+          {
+            "identifier": "D",
+            "Answer": "SUN"
+          }
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "question": "What is the chemical symbol for gold?",
+        "answers": [
+          {
+            "identifier": "A",
+            "Answer": "Au"
+          },
+          {
+            "identifier": "B",
+            "Answer": "Ag"
+          },
+          {
+            "identifier": "C",
+            "Answer": "Fe"
+          },
+          {
+            "identifier": "D",
+            "Answer": "Zu"
+          }
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "question": "Who wrote the play 'Romeo and Juliet'?",
+        "answers": [
+          {
+            "identifier": "A",
+            "Answer": "William Shakespeare"
+          },
+          {
+            "identifier": "B",
+            "Answer": "Jane Austen"
+          },
+          {
+            "identifier": "C",
+            "Answer": "Charles Dickens"
+          },
+          {
+            "identifier": "D",
+            "Answer": "Kisah Tegar"
+          }
+        ],
+        "correct_answer": "A"
+      },
+      {
+        "question": "Which gas do plants absorb from the atmosphere?",
+        "answers": [
+          {
+            "identifier": "A",
+            "Answer": "Oxygen"
+          },
+          {
+            "identifier": "B",
+            "Answer": "Carbon dioxide"
+          },
+          {
+            "identifier": "C",
+            "Answer": "Nitrogen"
+          },
+          {
+            "identifier": "D",
+            "Answer": "Lava"
+          }
+        ],
+        "correct_answer": "B"
+      }
+    ]
+  }
+  

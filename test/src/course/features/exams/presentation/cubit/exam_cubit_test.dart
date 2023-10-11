@@ -11,7 +11,7 @@ import 'package:education_app/src/course/features/exams/domain/usecases/get_user
 import 'package:education_app/src/course/features/exams/domain/usecases/submit_exam.dart';
 import 'package:education_app/src/course/features/exams/domain/usecases/update_exam.dart';
 import 'package:education_app/src/course/features/exams/domain/usecases/upload_exam.dart';
-import 'package:education_app/src/course/features/exams/presentation/cubit/exam_cubit.dart';
+import 'package:education_app/src/course/features/exams/presentation/app/cubit/exam_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

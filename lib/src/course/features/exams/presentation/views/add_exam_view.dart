@@ -10,7 +10,7 @@ import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/course/domain/entities/course.dart';
 import 'package:education_app/src/course/features/exams/data/models/exam_model.dart';
-import 'package:education_app/src/course/features/exams/presentation/cubit/exam_cubit.dart';
+import 'package:education_app/src/course/features/exams/presentation/app/cubit/exam_cubit.dart';
 import 'package:education_app/src/notifications/presentation/widgets/notification_wrapper.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';

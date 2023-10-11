@@ -67,4 +67,12 @@ class Exam extends Equatable {
 
   @override
   List<Object?> get props => [id, courseId];
+
+  /// This method is overridden to provide a human-readable representation of
+  /// the `Exam` instance.
+  @override
+  String toString() {
+    return 'Exam{id:  $id, courseId: $courseId, title: $title, description: $description, '
+        'timeLimit: $timeLimit, imageUrl: $imageUrl, questions: $questions}';
+  }
 }
