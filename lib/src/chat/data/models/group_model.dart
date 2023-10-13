@@ -53,8 +53,8 @@ class GroupModel extends Group {
           lastMessage: map['lastMessage'] as String?,
           lastMessageTimestamp:
               (map['lastMessageTimestamp'] as Timestamp?)?.toDate(),
-          lastMessageSenderName: map['lastMessageSenderName'] as String,
-          groupImageUrl: map['groupImageUrl'] as String,
+          lastMessageSenderName: map['lastMessageSenderName'] as String?,
+          groupImageUrl: map['groupImageUrl'] as String?,
         );
 
   /// Creates a copy of this `GroupModel` instance with optional property changes.

@@ -38,7 +38,12 @@ class _NotificationsViewState extends State<NotificationsView> {
         title: const Text('Notifications'), // Title of the app bar.
         centerTitle: false,
         leading: const NestedBackButton(), // Back button.
-        actions: const [NotificationOptions()], // Notification options.
+        actions: [
+          BlocProvider(
+            create: (_) => sl<NotificationCubit>(),
+            child: const NotificationOptions(),
+          ),
+        ], // Notification options.
       ),
       body: BlocConsumer<NotificationCubit, NotificationState>(
         listener: (context, state) {
