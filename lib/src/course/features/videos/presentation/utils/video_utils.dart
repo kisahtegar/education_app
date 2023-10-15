@@ -91,10 +91,15 @@ class VideoUtils {
     // Check if the video URL is a YouTube video.
     if (videoURL.isYoutubeVideo) {
       // Launch the YouTube video in an external application.
-      if (!await launchUrl(
+      final launchSuccess = await launchUrl(
         Uri.parse(videoURL),
         mode: LaunchMode.externalApplication,
-      )) {
+      );
+
+      if (!context.mounted) return; // Check the context before proceeding.
+
+      // Launch the YouTube video in an external application.
+      if (!launchSuccess) {
         // Display an error message if the launch fails.
         CoreUtils.showSnackBar(
           context,
